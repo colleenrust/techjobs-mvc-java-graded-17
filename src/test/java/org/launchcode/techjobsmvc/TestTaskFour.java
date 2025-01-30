@@ -6,6 +6,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.xpath;
@@ -25,7 +26,8 @@ public class TestTaskFour {
      * */
     @Test
     public void testSearchResultsLoad() throws Exception {
-        mockMvc.perform(post("/search/results")
+
+        mockMvc.perform(get("/search/results")
                         .param("searchType", "all")
                         .param("searchTerm", "asdf"))
                 .andExpect(status().isOk());
@@ -36,7 +38,7 @@ public class TestTaskFour {
      * */
     @Test
     public void testFirstSearchTestCase() throws Exception {
-        mockMvc.perform(post("/search/results")
+        mockMvc.perform(get("/search/results")
                         .param("searchType", "location")
                         .param("searchTerm", "new york"))
                 .andExpect(status().isOk())
@@ -49,7 +51,7 @@ public class TestTaskFour {
      * */
     @Test
     public void testSecondSearchTestCase() throws Exception {
-        mockMvc.perform(post("/search/results")
+        mockMvc.perform(get("/search/results")
                         .param("searchType", "location")
                         .param("searchTerm", "chicago"))
                 .andExpect(status().isOk())
@@ -61,7 +63,7 @@ public class TestTaskFour {
      * */
     @Test
     public void testThirdSearchTestCase() throws Exception {
-        mockMvc.perform(post("/search/results")
+        mockMvc.perform(get("/search/results")
                         .param("searchType", "employer")
                         .param("searchTerm", "equifax"))
                 .andExpect(status().isOk())
@@ -74,7 +76,7 @@ public class TestTaskFour {
      * */
     @Test
     public void testFourthSearchTestCase() throws Exception {
-        mockMvc.perform(post("/search/results")
+        mockMvc.perform(get("/search/results")
                         .param("searchType", "all")
                         .param("searchTerm", "ruby"))
                 .andExpect(status().isOk())
@@ -90,7 +92,7 @@ public class TestTaskFour {
      * */
     @Test
     public void testFifthSearchTestCase() throws Exception {
-        mockMvc.perform(post("/search/results")
+        mockMvc.perform(get("/search/results")
                         .param("searchType", "skill")
                         .param("searchTerm", "ruby"))
                 .andExpect(status().isOk())
