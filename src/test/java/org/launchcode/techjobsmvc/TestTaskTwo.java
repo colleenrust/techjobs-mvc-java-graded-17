@@ -84,6 +84,7 @@ public class TestTaskTwo {
                 .andExpect(xpath("//table/tr/td//a[starts-with(@href, '/list/jobs?column=all')]").exists());
     }
 
+
 }
 
 

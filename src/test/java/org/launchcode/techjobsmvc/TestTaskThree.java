@@ -4,6 +4,7 @@ import mockit.Tested;
 import org.junit.jupiter.api.Test;
 import org.launchcode.techjobsmvc.controllers.SearchController;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -45,8 +46,8 @@ public class TestTaskThree {
     public void testDisplaySearchResultsUsesCorrectAnnotation() throws ClassNotFoundException, NoSuchMethodException {
         Class searchControllerClass = Class.forName("org.launchcode.techjobsmvc.controllers.SearchController");
         Method displaySearchResultsMethod = searchControllerClass.getMethod("displaySearchResults", Model.class, String.class, String.class);
-        PostMapping annotation = displaySearchResultsMethod.getDeclaredAnnotation(PostMapping.class);
-        assertNotNull(annotation, "displaySearchResults should use @PostMapping");
+        GetMapping annotation = displaySearchResultsMethod.getDeclaredAnnotation(GetMapping.class);
+        assertNotNull(annotation, "displaySearchResults should use @GetMapping");
         assertEquals(annotation.value()[0], "results", "displaySearchResults should be at the route /search/results");
     }
 
