@@ -39,8 +39,8 @@
   <!-- TODO #4 - Loop over the search results to display all job fields. -->
     <div th:if="${not #lists.isEmpty(jobs)}">
         <h2>Search Results</h2>
-        <div th:each="job : ${jobs}">
-            <table class="job-listing">
+
+            <table class="job-listing"  th:each="job : ${jobs}">
                 <tr>
                     <th>ID</th>
                     <td th:text="${job.id}"></td>
@@ -72,7 +72,7 @@
     <div th:if="${#lists.isEmpty(jobs)}">
         <p>No jobs found matching your search criteria.</p>
     </div>
-</div>
+
 
 </body>
 </html>
